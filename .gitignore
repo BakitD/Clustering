@@ -1,0 +1,14 @@
+#Compiled sources
+#################
+*.pyc
+*.o
+*.txt
+
+#Other
+#################
+available_locations*
+settings.py
+twitter.cfg
+backups
+word2vec_models
+deps.words
