@@ -1,6 +1,8 @@
 from sklearn.cluster import KMeans
 from sklearn.cluster import AgglomerativeClustering
 
+from settings import DISTANCE_LINKAGE
+
 def cluster(trends, model, n_clusters=5):
 	cluster_list = prepare_list(trends, model)
 	kmeans = KMeans(init='k-means++', n_clusters=n_clusters)
@@ -36,7 +38,7 @@ def cluster_words(trends, model, n_clusters):
 	words_vectors = [model[word.lower()] for word in words]
 	#kmeans = KMeans(init='k-means++', n_clusters=n_clusters)
 	kmeans = AgglomerativeClustering(n_clusters=n_clusters, affinity='cosine',
-					linkage='complete')
+					linkage=DISTANCE_LINKAGE)
 	kmeans.fit(words_vectors)
 	clusters = {}
 	#print kmeans.labels_
